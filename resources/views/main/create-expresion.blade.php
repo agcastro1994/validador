@@ -24,7 +24,21 @@
 
                     <a href="/crear3"><button type="button" class="btn btn-primary">Finalizar</button> </a>
                 </div>
+                <?php $count=1; ?>
+                @if($expList != '0')
+              @foreach($expList as $expList)
+                {{$count}}.{{$expList->expresion}} 
+                <br>
+                <?php $count++; ?>               
+              @endforeach
+            @endif
+
             </div>
+
+            
+            
+            
+
         </div>
                     
                   

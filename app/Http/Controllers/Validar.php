@@ -24,7 +24,8 @@ class Validar extends Controller
 
 	public function list() {
 
-		$list = Pais::get();
+		$list = Pais::orderBy('country', 'asc')->get();
+
         $images = Imagen::get();
 
 		return view('main.index', compact('list','images')); 
@@ -46,8 +47,8 @@ class Validar extends Controller
     } 
 
     public function create2(){
-
-    	return view('main.create-expresion');
+        $expList = '0';
+    	return view('main.create-expresion' , compact('expList') );
 
     } 
 
@@ -97,9 +98,14 @@ public function storeExpresion(Request $request){
     	
     	$expresion->save();
 
-    	    	
-    	 return view('main.create-expresion');
-		}
+        $expList= Expresion::where('country_id', $id)->get();
+
+    	if ($expList != NULL){
+    	 return view('main.create-expresion', compact('expList'));
+        } else 
+        return view('main.create-expresion');
+        }
+		
 
         public function storeImage(Request $request){
 
@@ -226,6 +232,7 @@ public function storeExpresion(Request $request){
 
    $pais = Pais::find($id);
    $expresion =Expresion::where('country_id',$id)->get();
+   $image =Imagen::where('country_id',$id)->get();
 
    if($pais == null)
        return "No existe este pais";
@@ -236,16 +243,20 @@ public function storeExpresion(Request $request){
        $expresion->delete();
    }
 
+   foreach ($image as  $image) {
+       $image->delete();
+   }
+
    return redirect('/validar/paises');
     }
 
     public function deleteExpresion($id) {
    $expresion = Expresion::find($id);
+   $id2=$expresion->country_id;
    
    $expresion->delete();
-
    
 
-   return redirect('/validar/paises');
+   return redirect()->action('Validar@edit', ['id' => $id2]);
     }
 }

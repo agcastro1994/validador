@@ -14,6 +14,55 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
         <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
      
+     <style type="text/css">
+            
+        h1 {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .padre {
+
+            display: flex;
+            flex-flow: row wrap;
+
+        }
+
+        .img, .txt a {
+            float: left; 
+            position: relative;  
+        }
+
+        .img:hover {
+
+            top:-5px;
+        }
+
+        .clearfix {
+        clear: both;
+         }
+        .txt a, .edit a {
+
+             
+            padding: 15px 5px;
+            text-decoration: none;
+            color: #888;
+
+        }
+
+        .txt a:hover, .edit a:hover {
+        
+            color: #222;
+
+        } 
+
+        
+
+
+        
+
+
+     </style>
        
     </head> 
 
