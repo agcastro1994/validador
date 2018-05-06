@@ -214,9 +214,13 @@ public function storeExpresion(Request $request){
 
 		 //return $values;
     	if ($good == 1)
-    	return "El numero telefonico es valido para este pais  <a href='/validar/paises'>Volver a la lista</a> "; 
+    	
+        session()->flash('valid', 'El numero es VALIDO para este pais');
+
     	else 
-    	 return "El numero telefonico no es valido para este pais  <a href='/validar/paises'>Volver a la lista</a> "; 
+    	 session()->flash('invalid', 'El numero es NO ES VALIDO para este pais');
+
+       return redirect()->action('Validar@form', ['id' => $id]);
 
 }
 

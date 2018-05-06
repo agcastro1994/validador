@@ -1,7 +1,10 @@
 @extends('layouts.master')
 <body>
+	<br>
+		<h6><a href="/validar/paises">Regresar a la lista</a></h6>
+		
 		<h1>{{$country->country}}</h1>
-		<a href="/editar/nombre/{{$country->id}}">Editar nombre</a>
+		<div style="width:100%; text-align: center;"><a  href="/editar/nombre/{{$country->id}}">Editar nombre</a></div>
 
 	<ol>
 		@foreach($expresion as $expresion)
