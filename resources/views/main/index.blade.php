@@ -2,6 +2,10 @@
 
 @section('content')
 		<div class="container">
+			<a href="/">
+				<br><br>
+				<h5>Inicio</h5>
+			</a>
 			<h1>Paises</h1>
 			@if (Auth::check())
 				<a href="/crear">Agregar un nuevo pais</a>
